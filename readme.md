@@ -1,1 +1,2 @@
-Project hype :D
+composer install
+php artisan key:generate
