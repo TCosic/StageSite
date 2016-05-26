@@ -1,5 +1,4 @@
 <?php
 
-Route::get('/', function () {
-    return view('master');
-});
+Route::get('/', 'IndexController@index')->name('index');
+
