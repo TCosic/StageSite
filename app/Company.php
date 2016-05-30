@@ -20,11 +20,11 @@ class Company extends Model
     }
 
     public function tools() {
-        return $this->hasMany('App\Tool', 'internshiptools', 'tools_id');
+        return $this->belongsToMany('App\Tool', 'internshiptools', 'company_id', 'tool_id');
     }
 
     public function internship_user() {
-        return $this->hasMany('App\Internship_user', 'internshiptools', 'internship_user_id');
+        return $this->belongsToMany('App\Internship_user', 'internshiptools', 'company_id', 'internship_user_id');
     }
 
 }

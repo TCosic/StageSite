@@ -6,6 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Education extends Model
 {
+    /**
+     * Laravel was looking for "education" wich is the wrong table name when seeding. It should be "educations"
+     * This is fucking insane, why does this fix it?
+     */
+    protected $table = "educations";
+
     public $fillable = [
         'location_id',
         'cohort_id'

@@ -12,6 +12,7 @@ class IndexController extends Controller
 {
     public function index(){
         $tool = Tool::findOrFail(1);
+        dd($tool->internship_user->user);
 
         return view('test', compact('tool'));
     }

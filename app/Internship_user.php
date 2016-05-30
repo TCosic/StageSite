@@ -16,10 +16,10 @@ class Internship_user extends Model
     }
 
     public function company() {
-        return $this->hasMany('App\Company', 'internshiptools', 'company_id');
+        return $this->belongsToMany('App\Company', 'internshiptools', 'internship_user_id', 'company_id');
     }
 
     public function tools() {
-        return $this->hasMany('App\Tool', 'internshiptools', 'tools_id');
+        return $this->belongsToMany('App\Tool', 'internshiptools', 'internship_user_id', 'tools_id');
     }
 }

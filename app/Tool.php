@@ -18,10 +18,10 @@ class Tool extends Model
     }
 
     public function company() {
-        return $this->hasMany('App\Company', 'internshiptools', 'company_id');
+        return $this->belongsToMany('App\Company', 'internshiptools', 'tool_id', 'company_id');
     }
 
     public function internship_user() {
-        return $this->hasMany('App\Internship_user', 'internshiptools', 'internship_user_id');
+        return $this->belongsToMany('App\Internship_user', 'internshiptools', 'tool_id', 'internship_user_id');
     }
 }

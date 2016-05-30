@@ -13,9 +13,9 @@ class InternshiptoolsTableSeeder extends Seeder
     public function run()
     {
         Internshiptool::create([
-            //'tool_id' => 1,
-            //'internship_user_id' => 1,
-            //'company_id' => 1
+            'tool_id' => 1,
+            'internship_user_id' => 1,
+            'company_id' => 1
         ]);
     }
 }
