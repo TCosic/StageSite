@@ -18,13 +18,13 @@ class CreateInternshipsTable extends Migration
             $table->date('end_date');
 
             $table->unsignedInteger('contact_id')->default(2);
-            $table->foreign('contact_id')->references('id')->on('contact');
+            $table->foreign('contact_id')->references('id')->on('contacts');
 
             $table->unsignedInteger('status_id')->default(2);
             $table->foreign('status_id')->references('id')->on('statuses');
 
             $table->unsignedInteger('education_id')->default(2);
-            $table->foreign('education_id')->references('id')->on('education');
+            $table->foreign('education_id')->references('id')->on('educations');
             $table->timestamps();
         });
     }

@@ -13,8 +13,8 @@ class InternshipTableSeeder extends Seeder
     public function run()
     {
         Internship::create([
-            'start_date' => '',
-            'end_date' => '',
+            'start_date' => '2016-01-01',
+            'end_date' => '2016-01-01',
             'contact_id' => 1,
             'status_id' => 3,
             'education_id' => 1

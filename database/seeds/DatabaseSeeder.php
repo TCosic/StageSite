@@ -19,12 +19,13 @@ class DatabaseSeeder extends Seeder
         $this->call(ContactsTableSeeder::class);
         $this->call(UsersTableSeeder::class);
         $this->call(CohortsTableSeeder::class);
+        $this->call(SchoolsTableSeeder::class);
+        $this->call(LocationsTableSeeder::class);
+        $this->call(EducationsTableSeeder::class);
+        $this->call(InternshipTableSeeder::class);
         $this->call(Internship_usersTableSeeder::class);
         $this->call(InternshiptoolsTableSeeder::class);
-        $this->call(InternshipTableSeeder::class);
-        $this->call(LocationsTableSeeder::class);
+        
         $this->call(ReviewsTableSeeder::class);
-        $this->call(SchoolsTableSeeder::class);
-        $this->call(EducationsTableSeeder::class);
     }
 }
