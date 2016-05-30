@@ -12,14 +12,14 @@ class CreateInternshiptoolsTable extends Migration
      */
     public function up()
     {
-        Schema::create('Internschiptools', function (Blueprint $table) {
+        Schema::create('Internshiptools', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->unsignedInteger('tools_id')->default(2);
-            $table->foreign('tools_id')->references('id')->on('tools');
+            $table->unsignedInteger('tool_id')->default(2);
+            $table->foreign('tool_id')->references('id')->on('tools');
 
             $table->unsignedInteger('internship_user_id')->default(2);
-            $table->foreign('internship_user_id')->references('id')->on('internschip_user');
+            $table->foreign('internship_user_id')->references('id')->on('internship_user');
 
             $table->unsignedInteger('company_id')->default(2);
             $table->foreign('company_id')->references('id')->on('company');
@@ -35,6 +35,6 @@ class CreateInternshiptoolsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('Internschiptools');
+        Schema::drop('Internshiptools');
     }
 }

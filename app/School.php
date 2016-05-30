@@ -9,4 +9,8 @@ class School extends Model
     public $fillable = [
         'name'
     ];
+
+    public function location(){
+        return $this->hasMany('App\Location');
+    }
 }

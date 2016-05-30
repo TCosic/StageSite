@@ -12,4 +12,13 @@ class Cohort extends Model
         'end_year',
         'crebo_id'
     ];
+
+    public function education(){
+        return $this->hasMany('App\Education');
+    }
+
+    public function crebo()
+    {
+        return $this->belongsTo('App\Crebo');
+    }
 }

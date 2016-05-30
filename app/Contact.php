@@ -15,4 +15,17 @@ class Contact extends Model
         'mobile',
         'company_id'
     ];
+
+    public function user(){
+        return $this->hasOne('App\User');
+    }
+
+    public function company()
+    {
+        return $this->belongsTo('App\Company');
+    }
+
+    public function internship(){
+        return $this->hasMany('App\Internship');
+    }
 }

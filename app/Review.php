@@ -12,4 +12,14 @@ class Review extends Model
         'review',
         'rating'
     ];
+
+    public function status()
+    {
+        return $this->belongsTo('App\Status');
+    }
+
+    public function internship_user()
+    {
+        return $this->belongsTo('App\Internship_user');
+    }
 }
