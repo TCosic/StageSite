@@ -18,7 +18,7 @@ class CreateToolsTable extends Migration
             $table->string('description', 128);
 
             $table->unsignedInteger('status_id')->default(2);
-            $table->foreign('status_id')->references('id')->on('status');
+            $table->foreign('status_id')->references('id')->on('statuses');
 
             $table->timestamps();
         });

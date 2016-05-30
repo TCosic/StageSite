@@ -19,10 +19,10 @@ class CreateInternshiptoolsTable extends Migration
             $table->foreign('tool_id')->references('id')->on('tools');
 
             $table->unsignedInteger('internship_user_id')->default(2);
-            $table->foreign('internship_user_id')->references('id')->on('internship_user');
+            $table->foreign('internship_user_id')->references('id')->on('internship_users');
 
             $table->unsignedInteger('company_id')->default(2);
-            $table->foreign('company_id')->references('id')->on('company');
+            $table->foreign('company_id')->references('id')->on('companies');
 
             $table->timestamps();
         });
