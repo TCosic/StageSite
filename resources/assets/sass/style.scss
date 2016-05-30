@@ -1,0 +1,64 @@
+body{
+  font-family: arial, helvetica, sans-serif;
+  background: #F0F0F0;
+  margin: 0;
+}
+
+a{
+  &.test{
+    color: $blue;
+    background: $white;
+    padding: 3px;
+    border: 1px solid $blue2;
+  }
+}
+
+header{
+  background: #0063A6;
+  width: 100%;
+  color: white;
+
+  h1{
+    margin: 0;
+    height: 155px;
+    @include center();
+  }
+
+  nav{
+    background: #0090D2;
+    height: 45px;
+    @include center();
+    position: relative;
+
+    ul{
+      margin: 0;
+      list-style-type: none;
+
+      li{
+        display: inline-block;
+
+        a{
+          color: white;
+          font-weight: bold;
+          padding: 5px;
+          text-decoration: none;
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+main{
+  background: white;
+  @include center();
+  margin: -45px auto 0 auto;
+  overflow: auto;
+  padding-top: 45px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+footer{
+  @include center();
+  color: #444;
+}
