@@ -1,2 +1,23 @@
-// @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+//@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "variables.scss";
 
+/*@media (max-width: $screen-xs-max) {
+  @import "_small/main.scss";
+}
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+  @import "_medium/main.scss";
+}
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+
+}
+@media (min-width: $screen-lg-min) {
+
+}*/
+
+@mixin center() {
+  max-width: $max-size;
+  width: 90%;
+  margin: 0 auto;
+}
+
+@import "style.scss";
