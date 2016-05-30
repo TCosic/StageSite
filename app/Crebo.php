@@ -10,4 +10,8 @@ class Crebo extends Model
         'name',
         'number'
     ];
+
+    public function education(){
+        return $this->hasMany('App\Education');
+    }
 }

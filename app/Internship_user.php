@@ -10,4 +10,16 @@ class Internship_user extends Model
         'internship_id',
         'company_id'
     ];
+
+    public function review(){
+        return $this->hasOne('App\Review');
+    }
+
+    public function company() {
+        return $this->belongsToMany('App\Company', 'internshiptools', 'internship_user_id', 'company_id');
+    }
+
+    public function tools() {
+        return $this->belongsToMany('App\Tool', 'internshiptools', 'internship_user_id', 'tools_id');
+    }
 }
