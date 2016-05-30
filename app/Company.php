@@ -14,4 +14,17 @@ class Company extends Model
         'city',
         'tel'
     ];
+
+    public function contact(){
+        return $this->hasMany('App\Contact');
+    }
+
+    public function tools() {
+        return $this->belongsToMany('App\Tool', 'internshiptools', 'company_id', 'tool_id');
+    }
+
+    public function internship_user() {
+        return $this->belongsToMany('App\Internship_user', 'internshiptools', 'company_id', 'internship_user_id');
+    }
+
 }
