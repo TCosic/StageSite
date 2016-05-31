@@ -13,14 +13,14 @@ a{
   }
 }
 
-header{
+header.top{
   background: #0063A6;
   width: 100%;
   color: white;
 
   h1{
     margin: 0;
-    height: 155px;
+    line-height: 155px;
     @include center();
   }
 
@@ -32,6 +32,7 @@ header{
 
     ul{
       margin: 0;
+      padding: 0 0 0 10px;
       list-style-type: none;
 
       li{
@@ -40,9 +41,10 @@ header{
         a{
           color: white;
           font-weight: bold;
-          padding: 5px;
+          padding: 0 10px;
           text-decoration: none;
           display: block;
+          line-height: 45px;
         }
       }
     }
@@ -56,6 +58,17 @@ main{
   overflow: auto;
   padding-top: 45px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+
+  section{
+    h2{
+
+    }
+
+    article{
+      width: 50%;
+      display: inline-block;
+    }
+  }
 }
 
 footer{
