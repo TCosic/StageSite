@@ -20,7 +20,7 @@ Route::group(['middleware' => ['web']], function() {
      * Admin Routes
      */
     Route::group(['middleware' => ['auth', 'admin'], 'namespace' => 'Web', 'prefix' => 'admin', 'as' => 'admin.'], function() {
-        Route::get('account', 'AccountController@index')->name('account.index');
+        Route::get('accounts', 'AccountController@index')->name('accounts.index');
     });
 
     /**
