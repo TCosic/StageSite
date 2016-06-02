@@ -1,6 +1,6 @@
 
-<header>
-    <h1>Stage website (header.blade)</h1>
+<header class="top">
+    <h1>Tips Fedora &trade;</h1>
     <nav>
         <ul>
             <li><a href="#">Home</a></li>
