@@ -3,10 +3,10 @@
 @section('title', 'Internship details')
 
 @section('content')
-    <h1>Details</h1>
+    <h2>Details</h2>
     <article>
         <header>
-            <h2>{{$stage->contact->company->name}}</h2>
+            <h3>{{$stage->contact->company->name}}</h3>
             <ul>
                 <li><span>Locatie: </span> {{$stage->contact->company->fullAddress() }}</li>
                 <li><span>Telefoon: </span> <a href="tel:{{$stage->contact->company->tel}}">{{$stage->contact->company->tel}}</a></li>
