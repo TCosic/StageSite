@@ -4,6 +4,48 @@
 
 @section('content')
     <section>
+        <article>
+
+            <form method="POST" action="{{route('contact.search')}}">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <div>
+                    <label for="company">Bedrijfsnaam: </label>
+                    <input id="company" type="text" name="company_name">
+                </div>
+                <div>
+                    <label for="education">Opleiding: </label>
+                    <select name="education" id="education">
+                        <option value="bla">bla</option>
+                        <option value="bla">bla</option>
+                        <option value="bla">bla</option>
+                        <option value="bla">bla</option>
+                        <option value="bla">bla</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="straal">In een straal van: </label>
+                    <select name="straal" id="straal">
+                        <option value="1">1 km</option>
+                        <option value="2">2 km</option>
+                        <option value="5">5 km</option>
+                        <option value="10">10 km</option>
+                        <option value="15">15 km</option>
+                    </select>
+                    <label for="city">Rond: </label>
+                    <input id="city" type="text" name="city" >
+                </div>
+                <div>
+                    <label for="extra">Een extra optie</label>
+                    <input type="checkbox" name="extra" value="bla">
+                </div>
+                <div>
+                    <input type="submit">
+                </div>
+
+
+                
+            </form>
+        </article>
         <h2>Stageplekken</h2>
         @foreach($stages as $stage)
         <article>
@@ -17,7 +59,6 @@
                     <li><span>Leerweg: </span> {{$stage->education->leerweg}}</li>
                 </ul>
             </header>
-            <p>{{$stage->description}}</p>
         </article>
         @endforeach
     </section>
