@@ -14,8 +14,8 @@ class CreateInternshipsTable extends Migration
     {
         Schema::create('internships', function (Blueprint $table) {
             $table->increments('id');
-            $table->int('start_date');
-            $table->int('end_date');
+            $table->date('start_date');
+            $table->date('end_date');
             $table->mediumText('description');
 
             $table->unsignedInteger('contact_id')->default(2);
