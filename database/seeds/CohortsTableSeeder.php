@@ -13,9 +13,9 @@ class CohortsTableSeeder extends Seeder
     public function run()
     {
         Cohort::create([
-            'name' => '23444',
-            'begin_year' => '2015',
-            'end_year' => '2016',
+            'name' => 'sept 2014 - july 2017',
+            'begin_year' => '2014',
+            'end_year' => '2014',
             'crebo_id' => 1,
         ]);
     }

@@ -14,6 +14,7 @@ class CreateEducationsTable extends Migration
     {
         Schema::create('educations', function (Blueprint $table) {
             $table->increments('id');
+            $table->enum('leerweg', array('BBL', 'BOL'));
 
             $table->unsignedInteger('location_id')->default(2);
             $table->foreign('location_id')->references('id')->on('locations');
