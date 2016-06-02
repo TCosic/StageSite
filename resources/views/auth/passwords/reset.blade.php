@@ -1,4 +1,6 @@
-@extends('layouts.app')
+@extends('master')
+
+@section('title', 'Reset wachtwoord')
 
 @section('content')
 <div class="container">
