@@ -20,6 +20,7 @@ class CreateCompaniesTable extends Migration
             $table->string('postal_code');
             $table->string('city');
             $table->string('tel');
+            $table->string('website');
             $table->timestamps();
         });
     }

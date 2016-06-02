@@ -27,4 +27,8 @@ class Company extends Model
         return $this->belongsToMany('App\Internship_user', 'internshiptools', 'company_id', 'internship_user_id');
     }
 
+    public function fullAddress(){
+        return $this->streetname.' '.$this->housenumber.' '.$this->postal_code.' '.$this->city;
+    }
+
 }
