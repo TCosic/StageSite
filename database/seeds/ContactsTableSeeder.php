@@ -19,7 +19,16 @@ class ContactsTableSeeder extends Seeder
             'email' => 'tim@borowy.nl',
             'tel' => '0180123456',
             'mobile' => '0612345678',
-            'company_id' => '1'
+            'company_id' => 1
+        ]);
+        Contact::create([
+            'name' => 'peter',
+            'middle_name' => '',
+            'last_name' => 'jansen',
+            'email' => 'peter@gmail.nl',
+            'tel' => '0180123456',
+            'mobile' => '0612345678',
+            'company_id' => 2
         ]);
     }
 }

@@ -16,6 +16,7 @@ class CreateInternshipsTable extends Migration
             $table->increments('id');
             $table->date('start_date');
             $table->date('end_date');
+            $table->mediumText('description');
 
             $table->unsignedInteger('contact_id')->default(2);
             $table->foreign('contact_id')->references('id')->on('contacts');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\web;
 
 use Illuminate\Http\Request;
+use App\Internship;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -16,7 +17,8 @@ class InternshipController extends Controller
      */
     public function index()
     {
-        return "hoi";
+        $stages = Internship::all();
+        return view('pages.internships.index', compact(['stages']));
     }
 
     /**
@@ -48,7 +50,8 @@ class InternshipController extends Controller
      */
     public function show($id)
     {
-        //
+        $stage = Internship::findOrFail($id);
+        return view('pages.internships.show', compact(['stage']));
     }
 
     /**
