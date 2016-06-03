@@ -30,4 +30,9 @@ class Education extends Model
     {
         return $this->belongsTo('App\Cohort');
     }
+
+    public function getCreboNameAttribute()
+    {
+        return $this->cohort->crebo->name;
+    }
 }

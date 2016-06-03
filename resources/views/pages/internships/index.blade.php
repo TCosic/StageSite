@@ -15,16 +15,14 @@
                 <div>
                     <label for="education">Opleiding: </label>
                     <select name="education" id="education">
-                        <option value="bla">bla</option>
-                        <option value="bla">bla</option>
-                        <option value="bla">bla</option>
-                        <option value="bla">bla</option>
-                        <option value="bla">bla</option>
+                        @foreach($educations as $key=>$education)
+                            <option value="{{ $key }}">{{ $education }}</option>
+                        @endforeach    
                     </select>
                 </div>
                 <div>
-                    <label for="straal">In een straal van: </label>
-                    <select name="straal" id="straal">
+                    <label for="radius">In een straal van: </label>
+                    <select name="radius" id="radius">
                         <option value="1">1 km</option>
                         <option value="2">2 km</option>
                         <option value="5">5 km</option>

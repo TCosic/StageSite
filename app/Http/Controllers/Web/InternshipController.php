@@ -4,6 +4,7 @@ namespace App\Http\Controllers\web;
 
 use Illuminate\Http\Request;
 use App\Internship;
+use App\Education;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -18,7 +19,10 @@ class InternshipController extends Controller
     public function index()
     {
         $stages = Internship::all();
-        return view('pages.internships.index', compact(['stages']));
+
+        $educations = Education::all()->pluck('crebo_name', 'id');
+
+        return view('pages.internships.index', compact(['stages', 'educations']));
     }
 
     /**
