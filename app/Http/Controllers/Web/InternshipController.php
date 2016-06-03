@@ -22,7 +22,17 @@ class InternshipController extends Controller
 
         $educations = Education::all()->pluck('crebo_name', 'id');
 
-        return view('pages.internships.index', compact(['stages', 'educations']));
+        $radius = [
+            1 => '1 km',
+            2 => '2 km',
+            5 => '5 km',
+            10 => '10 km',
+            15 => '15 km',
+            20 => '20 km',
+            30 => '30 km'
+        ];
+
+        return view('pages.internships.index', compact(['stages', 'educations', 'radius']));
     }
 
     /**
