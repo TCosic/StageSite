@@ -15,11 +15,93 @@ body {
   background: #F0F0F0;
   margin: 0; }
 
-a.test {
-  color: #2c4a52;
-  background: #f4ebdb;
-  padding: 3px;
-  border: 1px solid #537062; }
+#login-box {
+  z-index: 1000;
+  display: none;
+  position: absolute;
+  left: calc(50% - (330px / 2));
+  top: calc(50% - (300px /2));
+  border: 4px solid #303030;
+  width: 330px;
+  padding: 20px;
+  background: #F0F0F0;
+  color: #303030;
+  overflow: hidden; }
+  #login-box #sub-container {
+    position: relative;
+    width: 708px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: start;
+    align-items: flex-start; }
+    #login-box #sub-container #loginForm,
+    #login-box #sub-container #registerForm {
+      padding-right: 24px;
+      width: 330px; }
+      #login-box #sub-container #loginForm div,
+      #login-box #sub-container #registerForm div {
+        margin: 10px 0; }
+        #login-box #sub-container #loginForm div.checkbox-fields input,
+        #login-box #sub-container #registerForm div.checkbox-fields input {
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          margin: 0 20px 10px 0; }
+        #login-box #sub-container #loginForm div.checkbox-fields label,
+        #login-box #sub-container #registerForm div.checkbox-fields label {
+          display: inline-block;
+          width: auto;
+          vertical-align: top; }
+        #login-box #sub-container #loginForm div label,
+        #login-box #sub-container #loginForm div input[type='email'],
+        #login-box #sub-container #loginForm div input[type='password'],
+        #login-box #sub-container #loginForm div input[type='text'],
+        #login-box #sub-container #registerForm div label,
+        #login-box #sub-container #registerForm div input[type='email'],
+        #login-box #sub-container #registerForm div input[type='password'],
+        #login-box #sub-container #registerForm div input[type='text'] {
+          display: block;
+          width: 100%;
+          margin-bottom: 10px;
+          box-sizing: border-box; }
+        #login-box #sub-container #loginForm div input,
+        #login-box #sub-container #registerForm div input {
+          height: 30px; }
+        #login-box #sub-container #loginForm div .form-button,
+        #login-box #sub-container #registerForm div .form-button {
+          background-color: #0090D2;
+          border: none;
+          margin-right: 10px;
+          padding: 10px;
+          width: 150px;
+          height: 40px;
+          color: #FFF;
+          font-size: 1em;
+          cursor: pointer; }
+  #login-box #close-button {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    width: 25px;
+    height: 25px;
+    font-size: 15px;
+    text-align: center;
+    line-height: 25px;
+    background-color: #F0F0F0;
+    border: 4px solid #303030;
+    color: #303030;
+    font-weight: bold;
+    text-decoration: none; }
+
+#login-background {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999; }
 
 header.top {
   background: #0063A6;
@@ -28,13 +110,13 @@ header.top {
   header.top h1 {
     margin: 0;
     line-height: 155px;
-    max-width: 1000px;
+    max-width: 1200px;
     width: 90%;
     margin: 0 auto; }
   header.top nav {
     background: #0090D2;
     height: 45px;
-    max-width: 1000px;
+    max-width: 1200px;
     width: 90%;
     margin: 0 auto;
     position: relative; }
@@ -54,21 +136,60 @@ header.top {
 
 main {
   background: white;
-  max-width: 1000px;
+  max-width: 1200px;
   width: 90%;
   margin: 0 auto;
   margin: -45px auto 0 auto;
   overflow: auto;
   padding-top: 45px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); }
-  main section article {
-    width: 50%;
-    display: inline-block; }
+  main section {
+    margin: 20px; }
+    main section.internship-overview article {
+      width: 50%;
+      display: inline-block; }
+    main section.home article {
+      margin: 0 0 20px 0; }
+      main section.home article div {
+        max-width: 600px;
+        padding: 20px;
+        box-sizing: border-box; }
+      main section.home article .image-container {
+        padding: 0; }
+        main section.home article .image-container img {
+          width: 100%; }
+
+.flex {
+  display: -ms-flexbox;
+  display: flex; }
+
+.flex-reverse {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse; }
+
+@media (max-width: 700px) {
+  .flex {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column; }
+  .flex-reverse {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column; } }
 
 footer {
-  max-width: 1000px;
+  max-width: 1200px;
   width: 90%;
   margin: 0 auto;
+  margin-top: 20px;
   color: #444; }
+  footer .flex h2 {
+    margin: 10px 0; }
+  footer .flex h2, footer .flex p {
+    min-width: 200px; }
 
 /*# sourceMappingURL=app.css.map */

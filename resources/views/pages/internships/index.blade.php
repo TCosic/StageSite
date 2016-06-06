@@ -3,7 +3,7 @@
 @section('title', 'Internship overview')
 
 @section('content')
-    <section>
+    <section class="internship-overview" >
         <article>
             {!! Form::open(['route' => 'stage.search']) !!}
             <div>
