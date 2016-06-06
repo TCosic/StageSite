@@ -27,7 +27,7 @@ Route::group(['middleware' => ['web']], function() {
      * Api Routes
      */
     Route::group(['middleware' => ['api'], 'namespace' => 'Api'], function() {
-        Route::post('contact/search', 'ContactController@search')->name('contact.search');
+        Route::post('stage/search', 'InternshipController@search')->name('contact.search');
         Route::resource('contact', 'ContactController', ['only' => ['store', 'update', 'destroy']]);
     });
 });
