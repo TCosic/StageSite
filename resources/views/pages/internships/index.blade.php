@@ -3,29 +3,31 @@
 @section('title', 'Internship overview')
 
 @section('content')
-    <section class="internship-overview" >
-        <article>
-            {!! Form::open(['route' => 'stage.search']) !!}
-            <div>
-                {!! Form::label('company_name', 'Bedrijfsnaam:') !!}
-                {!! Form::text('company_name', null, ['class' => 'form-control']) !!}
-            </div>
-            <div>
-                {!! Form::label('education', 'Opleiding:') !!}
-                {!! Form::select('education', $educations, null, ['class' => 'form-control']) !!}
-            </div>
-            <div>
-                {!! Form::label('radius', 'In een straal van: ') !!}
-                {!! Form::select('radius', $radius, null, ['class' => 'form-controll']) !!}
-                {!! Form::label('city', 'Rond: ' ) !!}
-                {!! Form::text('city', null, ['class' => 'form-control']) !!}
-            </div>
-            <div>
-                {!! Form::submit('Zoeken', ['class' => 'btn btn-primary form-control']) !!}
-            </div>
-            {!! Form::close() !!}
+    <div class="search">
+        {!! Form::open(['route' => 'stage.search']) !!}
+        <div>
+            {!! Form::label('company_name', 'Bedrijfsnaam:') !!}
+            {!! Form::text('company_name', null, ['class' => 'form-control']) !!}
+        </div>
+        <div>
+            {!! Form::label('education', 'Opleiding:') !!}
+            {!! Form::select('education', $educations, null, ['class' => 'form-control']) !!}
+        </div>
+        <div>
+            {!! Form::label('radius', 'In een straal van: ') !!}
+            {!! Form::select('radius', $radius, null, ['class' => 'form-controll']) !!}
+        </div>
+        <div>
+            {!! Form::label('city', 'Rond: ' ) !!}
+            {!! Form::text('city', null, ['class' => 'form-control']) !!}
+        </div>
+        <div>
+            {!! Form::submit('Zoeken', ['class' => 'button']) !!}
+        </div>
+        {!! Form::close() !!}
 
-        </article>
+    </div>
+    <section>
         <h2>Stageplekken</h2>
         @foreach($stages as $stage)
         <article>
