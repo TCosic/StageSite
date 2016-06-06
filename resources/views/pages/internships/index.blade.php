@@ -4,48 +4,28 @@
 
 @section('content')
     <div class="search">
+        {!! Form::open(['route' => 'stage.search']) !!}
+        <div>
+            {!! Form::label('company_name', 'Bedrijfsnaam:') !!}
+            {!! Form::text('company_name', null, ['class' => 'form-control']) !!}
+        </div>
+        <div>
+            {!! Form::label('education', 'Opleiding:') !!}
+            {!! Form::select('education', $educations, null, ['class' => 'form-control']) !!}
+        </div>
+        <div>
+            {!! Form::label('radius', 'In een straal van: ') !!}
+            {!! Form::select('radius', $radius, null, ['class' => 'form-controll']) !!}
+        </div>
+        <div>
+            {!! Form::label('city', 'Rond: ' ) !!}
+            {!! Form::text('city', null, ['class' => 'form-control']) !!}
+        </div>
+        <div>
+            {!! Form::submit('Zoeken', ['class' => 'button']) !!}
+        </div>
+        {!! Form::close() !!}
 
-        <form method="POST" action="{{route('contact.search')}}">
-            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            <div>
-                <label for="company">Bedrijfsnaam: </label>
-                <input id="company" type="text" name="company_name">
-            </div>
-            <div>
-                <label for="education">Opleiding: </label>
-                <select name="education" id="education">
-                    <option value="bla">bla</option>
-                    <option value="bla">bla</option>
-                    <option value="bla">bla</option>
-                    <option value="bla">bla</option>
-                    <option value="bla">bla</option>
-                </select>
-            </div>
-            <div>
-                <label for="straal">In een straal van: </label>
-                <select name="straal" id="straal">
-                    <option value="1">1 km</option>
-                    <option value="2">2 km</option>
-                    <option value="5">5 km</option>
-                    <option value="10">10 km</option>
-                    <option value="15">15 km</option>
-                </select>
-            </div>
-            <div>
-                <label for="city">Rond: </label>
-                <input id="city" type="text" name="city" >
-            </div>
-            <div>
-                <label for="extra">Een extra optie</label>
-                <input type="checkbox" name="extra" value="bla">
-            </div>
-            <div>
-                <input type="submit" class="button">
-            </div>
-
-
-
-        </form>
     </div>
     <section>
         <h2>Stageplekken</h2>

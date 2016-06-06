@@ -14,6 +14,6 @@
 </main>
 
 @include('layouts.footer')
-{{--<script src="{{ asset('js/all.js') }}"></script>--}}
+<script src="{{ asset('js/all.js') }}"></script>
 </body>
 </html>
