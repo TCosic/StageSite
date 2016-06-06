@@ -59,6 +59,32 @@ main{
   padding-top: 45px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 
+  div.search{
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+    form {
+      div{
+        margin-bottom: 4px;
+      }
+
+      label {
+        width: 20%;
+        display: inline-block;
+      }
+
+      input[type="text"], select{
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        padding: 5px;
+        width: calc(80% - 17px);
+      }
+
+      select{
+        width: calc(80% - 5px);
+      }
+    }
+  }
+
   section{
     h2{
 
