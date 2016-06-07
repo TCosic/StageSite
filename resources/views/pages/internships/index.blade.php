@@ -22,10 +22,13 @@
             {!! Form::text('city', null, ['class' => 'form-control']) !!}
         </div>
         <div>
-            {!! Form::submit('Zoeken', ['class' => 'button']) !!}
+            {!! Form::submit('Zoeken', ['class' => 'button green']) !!}
         </div>
         {!! Form::close() !!}
 
+
+
+        </form>
     </div>
     <section>
         <h2>Stageplekken</h2>
