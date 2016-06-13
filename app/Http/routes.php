@@ -14,6 +14,7 @@ Route::group(['middleware' => ['web']], function() {
     Route::group([/*'middleware' => ['auth'], */'namespace' => 'Web'], function(){
         Route::get('/', 'IndexController@index')->name('index');
         Route::resource('stage', 'InternshipController', ['only' => ['index', 'show']]);
+        Route::resource('admin', 'UAdminController', ['only' => ['index']]);
     });
 
     /**
@@ -21,6 +22,7 @@ Route::group(['middleware' => ['web']], function() {
      */
     Route::group(['middleware' => ['auth', 'admin'], 'namespace' => 'Web', 'prefix' => 'admin', 'as' => 'admin.'], function() {
         Route::get('accounts', 'AccountController@index')->name('accounts.index');
+
     });
 
     /**
