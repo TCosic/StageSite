@@ -33,4 +33,9 @@ class Internship extends Model
     {
         return $this->belongsTo('App\Education');
     }
+
+    public function getCompanyNameAttribute()
+    {
+        return $this->contact->company->name;
+    }
 }

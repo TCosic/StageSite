@@ -29,7 +29,7 @@ Route::group(['middleware' => ['web']], function() {
      * Api Routes
      */
     Route::group(['middleware' => ['api'], 'namespace' => 'Api'], function() {
-        Route::post('stage/search', 'InternshipController@search')->name('contact.search');
+        Route::post('stage/search', 'InternshipController@search')->name('stage.search');
         Route::resource('contact', 'ContactController', ['only' => ['store', 'update', 'destroy']]);
     });
 });
