@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="search">
-        {!! Form::open(['route' => 'stage.search']) !!}
+        {!! Form::open(['route' => 'stage.search', 'class' => 'horizontal']) !!}
         <div>
             {!! Form::label('company_name', 'Bedrijfsnaam:') !!}
             {!! Form::text('company_name', null, ['class' => 'form-control']) !!}

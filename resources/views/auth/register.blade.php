@@ -1,4 +1,4 @@
-{!! Form::open(['url' => '/register']) !!}
+{!! Form::open(['url' => '/register', 'class' => 'vertical']) !!}
 
 <div class="input-fields">
     {!! Form::label('name', 'Name') !!}
