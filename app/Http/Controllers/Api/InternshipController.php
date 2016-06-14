@@ -26,7 +26,8 @@ class InternshipController extends Controller
     {
         $requestData = $request->all();
         $companyName = $requestData['company_name'];
-        $stage = Internship::whereHas('contact', function ($q) use ($companyName) {
+
+        $internships = Internship::whereHas('contact', function ($q) use ($companyName) {
             $q->whereHas('company', function ($q2) use ($companyName) {
                 $q2->where('name', 'like', "%$companyName%");
             });
@@ -34,9 +35,7 @@ class InternshipController extends Controller
             ->where('education_id', '=', $requestData['education'])
             ->get();
 
-        dd($stage);
-
-        return "hoi dit is de search. Doei!";
+        return response($internships, 200);
     }
 
     public function store(Request $request)
