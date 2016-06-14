@@ -13,8 +13,13 @@ class CrebosTableSeeder extends Seeder
     public function run()
     {
         Crebo::create([
-        'name' => 'Media Ontwikkeling',
-        'number' => '12345',
-    ]);
+            'name' => 'Media Ontwikkeling',
+            'number' => '12345',
+        ]);
+
+        Crebo::create([
+            'name' => 'Applicatie Ontwikkeling',
+            'number' => '32445',
+        ]);
     }
 }

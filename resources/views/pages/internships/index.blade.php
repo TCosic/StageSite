@@ -40,7 +40,7 @@
                     <li><span>Locatie: </span> {{$internship->contact->company->fullAddress() }}</li>
                     <li><span>Telefoon: </span> <a href="tel:{{$internship->contact->company->tel}}">{{$internship->contact->company->tel}}</a></li>
                     <li><span>Website: </span> <a href="http://{{$internship->contact->company->website}}" rel="nofollow">{{$internship->contact->company->website}}</a></li>
-                    <li><span>Richting: </span> {{$internship->education->cohort->crebo->name}}</li>
+                    <li><span>Richting: </span> {{$internship->education->crebo->name}}</li>
                     <li><span>Leerweg: </span> {{$internship->education->leerweg}}</li>
                 </ul>
                 <a href="{{ route('stage.destroy', $internship->id) }}" data-token="{{ csrf_token() }}" class="delete">Verwijderen</a>
