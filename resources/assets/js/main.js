@@ -48,4 +48,22 @@ $(window).load(function(){
         }
     }
 
+    var verwijder = $('.delete');
+    verwijder.click(function (e) {
+        e.preventDefault();
+        var token = $(this).data('token');
+        var url = $(this).attr('href');
+        $.ajax({
+            method: "post",
+            url: url,
+            data: {_method: 'delete', _token: token}
+        }).success(function (response) {
+            if (response == 1) {
+                $(e.currentTarget).closest('article.internship-item').fadeOut(100, function () {
+                    $(this).remove();
+                });
+            }
+        });
+    });
+
 });

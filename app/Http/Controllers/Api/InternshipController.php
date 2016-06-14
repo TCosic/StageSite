@@ -7,9 +7,21 @@ use App\Internship;
 use App\Company;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Validator;
 
 class InternshipController extends Controller
 {
+    private function validator(array $data)
+    {
+        return Validator::make($data, [
+            'start_date' => 'required|date',
+            'end_date'=> 'required|date',
+            'contact_id' => 'required',
+            'status_id' => 'required',
+            'education_id' => 'required'
+        ]);
+    }
+
     public function search(Request $request)
     {
         $requestData = $request->all();
@@ -25,5 +37,41 @@ class InternshipController extends Controller
         dd($stage);
 
         return "hoi dit is de search. Doei!";
+    }
+
+    public function store(Request $request)
+    {
+        $input = $request->all();
+        $input['contact_id'] = 1;
+
+        $validate = $this->validator($input);
+        if ($validate->fails()) {
+            $this->throwValidationException($request, $validate);
+        } else {
+            Internship::create($input);
+        }
+        return redirect(route('stage.index'));
+    }
+
+    public function update(Request $request, $internship)
+    {
+
+        $input = $request->all();
+        $input['contact_id'] = 1;
+
+        $validate = $this->validator($input);
+        if ($validate->fails()) {
+            $this->throwValidationException($request, $validate);
+        } else {
+            $internship->update($input);
+        }
+        return redirect(route('stage.index'));
+    }
+
+    public function destroy($internship){
+        if($internship->delete()) {
+            return response(1, 200);
+        }
+        return response(0, 200);
     }
 }
