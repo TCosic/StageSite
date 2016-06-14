@@ -6,7 +6,7 @@
     <section class="home">
         <article class="flex" >
             <div class="image-container">
-                <img src="http://placehold.it/600x400" alt="">
+                <img src="{{asset('img/placehold.it_600x400.png')}}" alt="">
             </div>
             <div>
                 <h2>Overview</h2>
@@ -19,7 +19,7 @@
         </article>
         <article class="flex-reverse" >
             <div class="image-container">
-                <img src="http://placehold.it/600x400" alt="">
+                <img src="{{asset('img/placehold.it_600x400.png')}}" alt="">
             </div>
             <div>
                 <h2>Overview</h2>

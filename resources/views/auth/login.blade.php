@@ -1,4 +1,4 @@
-{!! Form::open(['url' => '/login']) !!}
+{!! Form::open(['url' => '/login', 'class' => 'vertical']) !!}
 
 <div class="input-fields">
     {!! Form::label('email', 'E-Mail Address') !!}
@@ -15,8 +15,8 @@
     {!! Form::label('remember', 'Remember Me') !!}
 </div>
 <div>
-    <button class="form-button" id="goToRegister">Register</button>
-    {!! Form::submit('Login', ['class' => 'form-button']) !!}
+    <button class="button" id="goToRegister">Register</button>
+    {!! Form::submit('Login', ['class' => 'button']) !!}
 </div>
 <div>
     <a class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
