@@ -32,17 +32,19 @@
     </div>
     <section>
         <h2>Stageplekken</h2>
-        @foreach($stages as $stage)
-        <article>
+        @foreach($internships as $internship)
+        <article class="internship-item" >
             <header>
-                <h3><a href="{{ route('stage.show', $stage->id) }}">{{$stage->contact->company->name}}</a></h3>
+                <h3><a href="{{ route('stage.show', $internship->id) }}">{{$internship->contact->company->name}}</a></h3>
                 <ul>
-                    <li><span>Locatie: </span> {{$stage->contact->company->fullAddress() }}</li>
-                    <li><span>Telefoon: </span> <a href="tel:{{$stage->contact->company->tel}}">{{$stage->contact->company->tel}}</a></li>
-                    <li><span>Website: </span> <a href="http://{{$stage->contact->company->website}}" rel="nofollow">{{$stage->contact->company->website}}</a></li>
-                    <li><span>Richting: </span> {{$stage->education->cohort->crebo->name}}</li>
-                    <li><span>Leerweg: </span> {{$stage->education->leerweg}}</li>
+                    <li><span>Locatie: </span> {{$internship->contact->company->fullAddress() }}</li>
+                    <li><span>Telefoon: </span> <a href="tel:{{$internship->contact->company->tel}}">{{$internship->contact->company->tel}}</a></li>
+                    <li><span>Website: </span> <a href="http://{{$internship->contact->company->website}}" rel="nofollow">{{$internship->contact->company->website}}</a></li>
+                    <li><span>Richting: </span> {{$internship->education->crebo->name}}</li>
+                    <li><span>Leerweg: </span> {{$internship->education->leerweg}}</li>
                 </ul>
+                <a href="{{ route('stage.destroy', $internship->id) }}" data-token="{{ csrf_token() }}" class="delete">Verwijderen</a>
+                <a href="{{ route('stage.edit', $internship->id) }}">Wijzig</a>
             </header>
         </article>
         @endforeach

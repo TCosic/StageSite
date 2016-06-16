@@ -18,9 +18,6 @@ class CreateCohortsTable extends Migration
             $table->smallInteger('begin_year');
             $table->smallInteger('end_year');
 
-            $table->unsignedInteger('crebo_id')->default(2);
-            $table->foreign('crebo_id')->references('id')->on('crebos');
-
             $table->timestamps();
         });
     }
