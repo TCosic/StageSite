@@ -16,7 +16,7 @@
 </div>
 <div>
     <button class="button" id="goToRegister">Register</button>
-    {!! Form::submit('Login', ['class' => 'button']) !!}
+    {!! Form::button('Login', ['class' => 'button']) !!}
 </div>
 <div>
     <a class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
