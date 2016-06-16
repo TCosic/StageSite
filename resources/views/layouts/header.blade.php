@@ -1,6 +1,6 @@
 
 <header class="top">
-    <h1>Tips Fedora &trade;</h1>
+    <h1><a href="{{ route('index') }}">Tips Fedora &trade;</a></h1>
     <nav>
         <ul>
             <li><a href="{{ route('index') }}">Home</a></li>
