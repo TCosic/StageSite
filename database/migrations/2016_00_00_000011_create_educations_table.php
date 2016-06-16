@@ -22,6 +22,9 @@ class CreateEducationsTable extends Migration
             $table->unsignedInteger('cohort_id')->default(2);
             $table->foreign('cohort_id')->references('id')->on('cohorts');
 
+            $table->unsignedInteger('crebo_id')->default(2);
+            $table->foreign('crebo_id')->references('id')->on('crebos');
+
             $table->timestamps();
         });
     }
