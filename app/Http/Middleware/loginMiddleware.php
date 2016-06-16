@@ -16,7 +16,7 @@ class loginMiddleware
     public function handle($request, Closure $next)
     {
         if(Auth::user()->role_id != 1) {
-            return redirect(route('index'));
+            return redirect(route('accounts.index'));
         }
         return $next($request);
     }
