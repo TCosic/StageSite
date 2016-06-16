@@ -29,7 +29,7 @@ class HomeController extends Controller
 
     public function getIndex()
     {
-        return View::make('home.index');
+        return View::make('auth.index');
     }
 
     public function postIndex()
