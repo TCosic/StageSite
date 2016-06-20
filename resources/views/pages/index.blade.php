@@ -4,12 +4,6 @@
 
 @section('content')
     <section class="home">
-        @if(Auth::check())
-            @if(Auth::user()->role_id == 1)
-                <li><a href="{{ route('admin.account.index') }}">user is logged in</a></li>
-            @endif
-        @endif
-
         <article class="flex" >
             <div class="image-container">
                 <img src="{{asset('img/placehold.it_600x400.png')}}" alt="">
@@ -37,5 +31,4 @@
             </div>
         </article>
     </section>
-
 @stop
