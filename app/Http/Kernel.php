@@ -31,8 +31,8 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\VerifyCsrfToken::class,
         ],
 
-        'admin' => [
-            AdminMiddleware::class
+        'login' => [
+            \App\Http\Middleware\LoginMiddleware::class
         ],
 
         'api' => [

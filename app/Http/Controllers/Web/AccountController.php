@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 class AccountController extends Controller
 {
     public function index(){
-        return view('accounts.index');
+        return view('pages.accounts.index');
     }
 
 }
