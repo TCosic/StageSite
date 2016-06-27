@@ -3,8 +3,9 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
-class loginMiddleware
+class LoginMiddleware
 {
     /**
      * Handle an incoming request.
@@ -16,7 +17,7 @@ class loginMiddleware
     public function handle($request, Closure $next)
     {
         if(Auth::user()->role_id != 1) {
-            return redirect(route('index'));
+            return redirect(route('accounts.index'));
         }
         return $next($request);
     }

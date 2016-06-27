@@ -14,15 +14,21 @@ Route::group(['middleware' => ['web']], function() {
     Route::group([/*'middleware' => ['auth'], */'namespace' => 'Web'], function(){
         Route::get('/', 'IndexController@index')->name('index');
         Route::resource('stage', 'InternshipController', ['only' => ['index', 'show', 'create', 'edit']]);
-        Route::get('accounts', 'AccountController@index')->name('accounts.index');
+        Route::resource('bedrijf', 'CompanyController', ['only' => ['index', 'show', 'create', 'edit']]);
     });
 
     /**
-     * Admin Routes
+     * Logged in Routes
      */
-    Route::group(['middleware' => ['auth', 'login'], 'namespace' => 'Web', 'prefix' => 'login', 'as' => 'login.'], function() {
+    Route::group(['middleware' => ['auth'], 'namespace' => 'Web', 'as' => 'login.'], function () {
         Route::get('accounts', 'AccountController@index')->name('accounts.index');
+
+        Route::group(['middleware' => ['login'], 'as' => 'login.'], function() {
+            Route::get('admin', 'AdminController@index')->name('admin.index');
+
+        });
     });
+
 
     /**
      * Api Routes
@@ -30,5 +36,7 @@ Route::group(['middleware' => ['web']], function() {
     Route::group(['middleware' => ['api'], 'namespace' => 'Api'], function() {
         Route::post('stage/search', 'InternshipController@search')->name('stage.search');
         Route::resource('stage', 'internshipController', ['only' => ['store', 'update', 'destroy']]);
+        Route::resource('bedrijf', 'CompanyController', ['only' => ['store', 'update', 'destroy']]);
     });
 });
+
