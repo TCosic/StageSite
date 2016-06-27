@@ -1,11 +1,9 @@
 <?php
 
-//Route::get('/', 'IndexController@index')->name('index');
-//
-//Route::auth();
-//
-//Route::get('/home', 'HomeController@index');
-
+//Route::group(['prefix' => 'administration', 'middleware' => ['auth', 'admin']], function()
+//{
+//    Route::get('/', 'Admin\HomeController@index');
+//});
 /**
  * Web Routes
  */
