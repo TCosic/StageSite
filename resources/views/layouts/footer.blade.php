@@ -1,6 +1,6 @@
 <footer>
     <div class="flex">
-        <h2>Tips Fedora &trade; </h2>
+        <h2>Ecabo 2.0</h2>
         <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid atque cumque eius
             exercitationem incidunt ipsum nemo, nesciunt, nihil nulla quo reprehenderit sunt

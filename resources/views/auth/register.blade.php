@@ -25,8 +25,8 @@
     {!! Form::label('remember', 'Remember Me') !!}
 </div>
 <div>
-    <button class="form-button" id="goBack">< back</button>
-    {!! Form::submit('Register', ['class' => 'form-button']) !!}
+    <button class="form-button button blue" id="goBack">< back</button>
+    {!! Form::submit('Register', ['class' => 'form-button button']) !!}
 </div>
 
 {!! Form::close() !!}
