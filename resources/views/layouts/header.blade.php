@@ -16,7 +16,6 @@
                 <li><a id="menu-login-button" href="{{ url('/login') }}">Login</a></li>
             @endif
         </ul>
-        {{Auth::user()}}
     </nav>
     <div id="login-background"></div>
     <div id="login-box">
