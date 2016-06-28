@@ -27,7 +27,7 @@
         {!! Form::close() !!}
     </div>
     <section>
-        <h2>Stageplekken overzicht</h2>
+        <h2>Stageplekken overzicht</h2><a href="{{route('stage.create')}}" class="button green">Create</a>
         @foreach($internships as $internship)
         <article class="internship-item" >
             <header>
@@ -39,8 +39,10 @@
                     <li><span>Richting: </span> {{$internship->education->crebo->name}}</li>
                     <li><span>Leerweg: </span> {{$internship->education->leerweg}}</li>
                 </ul>
-                <a href="{{ route('stage.destroy', $internship->id) }}" data-token="{{ csrf_token() }}" class="delete">Verwijderen</a>
-                <a href="{{ route('stage.edit', $internship->id) }}">Wijzig</a>
+                <div class="hoverShow">
+                    <a href="{{ route('stage.destroy', $internship->id) }}" data-token="{{ csrf_token() }}" class="delete">Verwijderen</a>
+                    <a href="{{ route('stage.edit', $internship->id) }}">Wijzig</a>
+                </div>
             </header>
         </article>
         @endforeach

@@ -92,6 +92,15 @@ main{
       article{
         width: 50%;
         display: inline-block;
+
+        .hoverShow{
+          visibility: 0;
+        }
+      }
+
+
+      article::hover .hoverShow{
+        visibility: 1;
       }
     }
 
@@ -114,7 +123,6 @@ main{
     }
   }
 }
-
 
 
 
