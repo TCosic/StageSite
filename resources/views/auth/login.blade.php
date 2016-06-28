@@ -15,8 +15,8 @@
     {!! Form::label('remember', 'Remember Me') !!}
 </div>
 <div>
-    <button class="button" id="goToRegister">Register</button>
-    {!! Form::button('Login', ['class' => 'button']) !!}
+    <button class="form-button button" id="goToRegister">Register</button>
+    {!! Form::submit('Login', ['class' => 'form-button button']) !!}
 </div>
 <div>
     <a class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>

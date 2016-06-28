@@ -3,12 +3,11 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Support\Facades\Auth;
 
-class LoginMiddleware
+class AdminMiddleware
 {
     /**
-     * Handle an incoming request.
+     * Handle an incoming request. User must be logged in to do admin check
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
@@ -16,9 +15,11 @@ class LoginMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::user()->role_id != 1) {
-            return redirect(route('accounts.index'));
+        if (\Auth::user()->is_admin == 1)
+        {
+            return $next($request);
         }
-        return $next($request);
+
+        return redirect()->guest('/');
     }
 }

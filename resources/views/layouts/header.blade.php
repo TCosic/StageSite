@@ -1,11 +1,11 @@
 
 <header class="top">
-    <h1>Tips Fedora &trade;</h1>
+    <h1><a href="{{ route('index') }}">Ecabo 2.0</a></h1>
     <nav>
         <ul>
             <li><a href="{{ route('index') }}">Home</a></li>
             <li><a href="{{ route('stage.index') }}">Zoek een stage</a></li>
-            <li><a href="#">Bedrijven</a></li>
+            <li><a href="{{ route('bedrijf.index') }}">Bedrijven</a></li>
             @if(Auth::check())
                 @if(Auth::user()->role_id == 1)
                     <li><a href="{{ url('/logout') }}">Logout</a></li>

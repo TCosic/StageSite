@@ -12,7 +12,8 @@ class Company extends Model
         'housenumber',
         'postal_code',
         'city',
-        'tel'
+        'tel',
+        'website'
     ];
 
     public function contact(){

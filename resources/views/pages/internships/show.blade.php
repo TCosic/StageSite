@@ -4,7 +4,9 @@
 
 @section('content')
     <section>
-        <h2>Details</h2>
+        <h2>Stageplek details</h2>
+        <a href="{{route('stage.edit', $internship->id)}}" class="button green">Edit</a>
+        <a href="{{ route('stage.destroy', $internship->id) }}" data-token="{{ csrf_token() }}" class="delete button green" >Delete</a>
         <article>
             <header>
                 <h3>{{$internship->contact->company->name}}</h3>

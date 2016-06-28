@@ -9,10 +9,15 @@ header.top{
   width: 100%;
   color: white;
 
-  h1{
+  h1 {
     margin: 0;
     line-height: 155px;
     @include center();
+
+    a {
+      text-decoration: none;
+      color: #FFF;
+    }
   }
 
   nav{
@@ -87,6 +92,15 @@ main{
       article{
         width: 50%;
         display: inline-block;
+
+        .hoverShow{
+          visibility: 0;
+        }
+      }
+
+
+      article::hover .hoverShow{
+        visibility: 1;
       }
     }
 
@@ -109,7 +123,6 @@ main{
     }
   }
 }
-
 
 
 
