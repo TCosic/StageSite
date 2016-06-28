@@ -115,8 +115,15 @@ main{
   }
 }
 
+a {
+  color: #428bca;
+  text-decoration: none;
+}
 
-
+a:hover, a:focus {
+  color: #2a6496;
+  text-decoration: underline;
+}
 
 .flex{
   display: flex;
