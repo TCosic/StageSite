@@ -40,7 +40,7 @@
                 <input type="checkbox" name="extra" value="bla">
             </div>
             <div>
-                <input type="submit" class="button">
+                <input type="submit" class="button green">
             </div>
 
 

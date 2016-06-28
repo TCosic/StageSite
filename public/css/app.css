@@ -100,5 +100,7 @@ footer {
   background: #2196F3; }
   .button:hover {
     cursor: pointer; }
+  .button.green {
+    background-color: #27ae60; }
 
 /*# sourceMappingURL=app.css.map */
