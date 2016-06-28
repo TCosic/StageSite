@@ -31,6 +31,10 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\VerifyCsrfToken::class,
         ],
 
+        'login' => [
+            \App\Http\Middleware\LoginMiddleware::class
+        ],
+
         'api' => [
             'throttle:60,1',
         ],
@@ -49,5 +53,6 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Foundation\Http\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'admin' => \App\Http\Middleware\AdminMiddleware::class,
     ];
 }

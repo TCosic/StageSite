@@ -1,6 +1,6 @@
 @extends('master')
 
-@section('title', 'Internship overview')
+@section('title', 'Internships overview')
 
 @section('content')
     <div class="search">
@@ -25,13 +25,9 @@
             {!! Form::submit('Zoeken', ['class' => 'button green']) !!}
         </div>
         {!! Form::close() !!}
-
-
-
-        </form>
     </div>
     <section>
-        <h2>Stageplekken</h2>
+        <h2>Stageplekken overzicht</h2>
         @foreach($internships as $internship)
         <article class="internship-item" >
             <header>
