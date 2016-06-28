@@ -3,7 +3,7 @@
 @section('title', 'Internshipcompanies Overview')
 
 @section('content')
-    <section>
+    <section class="company-overview">
         <h2>Stagebedrijven overzicht</h2>
         <a href="{{route('bedrijf.create')}}" class="button green">Create</a>
         @foreach($companies as $company)
@@ -18,8 +18,8 @@
                     {{--<li><span>Leerweg: </span> {{$company->education->leerweg}}</li>--}}
                 </ul>
                 <div class="hoverShow">
-                <a href="{{ route('bedrijf.destroy', $company->id) }}" data-token="{{ csrf_token() }}" class="delete">Verwijderen</a>
-                <a href="{{ route('bedrijf.edit', $company->id) }}">Wijzig</a>
+                    <a href="{{ route('bedrijf.destroy', $company->id) }}" data-token="{{ csrf_token() }}" class="delete">Verwijderen</a>
+                    <a href="{{ route('bedrijf.edit', $company->id) }}">Wijzig</a>
                 </div>
             </header>
         </article>
