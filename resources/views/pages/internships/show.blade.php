@@ -19,6 +19,23 @@
                 </ul>
             </header>
             <p>{{$internship->description}}</p>
+
+            <section id="comments">
+            @if(Auth::check())
+                @if(Auth::user()->role_id == 1)
+                    {{--Comment plaatsen--}}
+                    {{--{!! Form::open(['route' => 'stage.comment', 'class' => 'comment']) !!}--}}
+                        {{--<div class="input-fields">--}}
+                            {{--{!! Form::label('content', 'Inhoud') !!}--}}
+                            {{--{{ Form::textarea('content') }}--}}
+                        {{--</div>--}}
+                        {{--<div>--}}
+                            {{--{!! Form::submit('submit', ['class' => 'button']) !!}--}}
+                        {{--</div>--}}
+                    {{--{!! Form::close() !!}--}}
+                @endif
+            @endif
+            </section>
         </article>
     </section>
 @stop
