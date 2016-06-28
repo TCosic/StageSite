@@ -11,7 +11,8 @@ class Internship extends Model
         'end_date',
         'contact_id',
         'status_id',
-        'education_id'
+        'education_id',
+        'description'
     ];
 
     public function user()
@@ -32,5 +33,10 @@ class Internship extends Model
     public function education()
     {
         return $this->belongsTo('App\Education');
+    }
+
+    public function getCompanyNameAttribute()
+    {
+        return $this->contact->company->name;
     }
 }

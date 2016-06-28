@@ -1,31 +1,27 @@
 body{
   font-family: arial, helvetica, sans-serif;
-  background: #F0F0F0;
+  background: $grey;
   margin: 0;
 }
 
-a{
-  &.test{
-    color: $blue;
-    background: $white;
-    padding: 3px;
-    border: 1px solid $blue2;
-  }
-}
-
 header.top{
-  background: #0063A6;
+  background: $blue;
   width: 100%;
   color: white;
 
-  h1{
+  h1 {
     margin: 0;
     line-height: 155px;
     @include center();
+
+    a {
+      text-decoration: none;
+      color: #FFF;
+    }
   }
 
   nav{
-    background: #0090D2;
+    background: $light-blue;
     height: 45px;
     @include center();
     position: relative;
@@ -62,42 +58,95 @@ main{
   div.search{
     border-bottom: 1px solid #ccc;
     padding: 10px;
-    form {
-      div{
-        margin-bottom: 4px;
-      }
-
-      label {
-        width: 20%;
-        display: inline-block;
-      }
-
-      input[type="text"], select{
-        border-radius: 5px;
-        border: 1px solid #ccc;
-        padding: 5px;
-        width: calc(80% - 17px);
-      }
-
-      select{
-        width: calc(80% - 5px);
-      }
-    }
+    //form {
+    //  div{
+    //    margin-bottom: 4px;
+    //  }
+    //
+    //  label {
+    //    width: 20%;
+    //    display: inline-block;
+    //  }
+    //
+    //  input[type="text"], select{
+    //    border-radius: 5px;
+    //    border: 1px solid #ccc;
+    //    padding: 5px;
+    //    width: calc(80% - 17px);
+    //  }
+    //
+    //  select{
+    //    width: calc(80% - 5px);
+    //  }
+    //}
   }
 
   section{
-    h2{
+    margin: 20px;
+    &.internship-overview{
 
+      h2{
+
+      }
+
+      article{
+        width: 50%;
+        display: inline-block;
+      }
     }
 
-    article{
-      width: 50%;
-      display: inline-block;
+    &.home{
+      article{
+        margin: 0 0 20px 0;
+        div{
+          max-width: 600px;
+          padding: 20px;
+          box-sizing: border-box;
+        }
+
+        .image-container{
+          padding: 0;
+          img{
+            width: 100%
+          }
+        }
+      }
     }
+  }
+}
+
+
+
+
+.flex{
+  display: flex;
+}
+.flex-reverse{
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+@media (max-width: 700px) {
+  .flex{
+    display: flex;
+    flex-direction: column;
+  }
+  .flex-reverse{
+    display: flex;
+    flex-direction: column;
   }
 }
 
 footer{
   @include center();
+  margin-top: 20px;
   color: #444;
+  .flex{
+    h2{
+      margin: 10px 0;
+    }
+    h2, p{
+      min-width: 200px;
+    }
+  }
 }

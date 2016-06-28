@@ -1,65 +1,46 @@
 @extends('master')
 
-@section('title', 'Internship overview')
+@section('title', 'Internships overview')
 
 @section('content')
     <div class="search">
-
-        <form method="POST" action="{{route('contact.search')}}">
-            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            <div>
-                <label for="company">Bedrijfsnaam: </label>
-                <input id="company" type="text" name="company_name">
-            </div>
-            <div>
-                <label for="education">Opleiding: </label>
-                <select name="education" id="education">
-                    <option value="bla">bla</option>
-                    <option value="bla">bla</option>
-                    <option value="bla">bla</option>
-                    <option value="bla">bla</option>
-                    <option value="bla">bla</option>
-                </select>
-            </div>
-            <div>
-                <label for="straal">In een straal van: </label>
-                <select name="straal" id="straal">
-                    <option value="1">1 km</option>
-                    <option value="2">2 km</option>
-                    <option value="5">5 km</option>
-                    <option value="10">10 km</option>
-                    <option value="15">15 km</option>
-                </select>
-            </div>
-            <div>
-                <label for="city">Rond: </label>
-                <input id="city" type="text" name="city" >
-            </div>
-            <div>
-                <label for="extra">Een extra optie</label>
-                <input type="checkbox" name="extra" value="bla">
-            </div>
-            <div>
-                <input type="submit" class="button green">
-            </div>
-
-
-
-        </form>
+        {!! Form::open(['route' => 'stage.search', 'class' => 'horizontal']) !!}
+        <div>
+            {!! Form::label('company_name', 'Bedrijfsnaam:') !!}
+            {!! Form::text('company_name', null, ['class' => 'form-control']) !!}
+        </div>
+        <div>
+            {!! Form::label('education', 'Opleiding:') !!}
+            {!! Form::select('education', $educations, null, ['class' => 'form-control']) !!}
+        </div>
+        <div>
+            {!! Form::label('radius', 'In een straal van: ') !!}
+            {!! Form::select('radius', $radius, null, ['class' => 'form-controll']) !!}
+        </div>
+        <div>
+            {!! Form::label('city', 'Rond: ' ) !!}
+            {!! Form::text('city', null, ['class' => 'form-control']) !!}
+        </div>
+        <div>
+            {!! Form::submit('Zoeken', ['class' => 'button green']) !!}
+        </div>
+        {!! Form::close() !!}
     </div>
     <section>
-        <h2>Stageplekken</h2>
-        @foreach($stages as $stage)
-        <article>
+        <h2>Stageplekken overzicht</h2>
+        @foreach($internships as $internship)
+        <article class="internship-item" >
             <header>
-                <h3><a href="{{ route('stage.show', $stage->id) }}">{{$stage->contact->company->name}}</a></h3>
+                <h3><a href="{{ route('stage.show', $internship->id) }}">{{$internship->contact->company->name}}</a></h3>
                 <ul>
-                    <li><span>Locatie: </span> {{$stage->contact->company->fullAddress() }}</li>
-                    <li><span>Telefoon: </span> <a href="tel:{{$stage->contact->company->tel}}">{{$stage->contact->company->tel}}</a></li>
-                    <li><span>Website: </span> <a href="http://{{$stage->contact->company->website}}" rel="nofollow">{{$stage->contact->company->website}}</a></li>
-                    <li><span>Richting: </span> {{$stage->education->cohort->crebo->name}}</li>
-                    <li><span>Leerweg: </span> {{$stage->education->leerweg}}</li>
+                    <li><span>Locatie: </span> {{$internship->contact->company->fullAddress() }}</li>
+                    <li><span>Telefoon: </span> <a href="tel:{{$internship->contact->company->tel}}">{{$internship->contact->company->tel}}</a></li>
+                    <li><span>Website: </span> <a href="http://{{$internship->contact->company->website}}" rel="nofollow">{{$internship->contact->company->website}}</a></li>
+                    <li><span>Richting: </span> {{$internship->education->crebo->name}}</li>
+                    <li><span>Leerweg: </span> {{$internship->education->leerweg}}</li>
                 </ul>
+                <a href="{{ route('stage.destroy', $internship->id) }}" data-token="{{ csrf_token() }}" class="delete">Verwijderen</a>
+                <a href="{{ route('stage.edit', $internship->id) }}">Wijzig</a>
             </header>
         </article>
         @endforeach
