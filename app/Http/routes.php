@@ -13,8 +13,15 @@ Route::group(['middleware' => ['web']], function() {
     Route::auth();
     Route::group([/*'middleware' => ['auth'], */'namespace' => 'Web'], function(){
         Route::get('/', 'IndexController@index')->name('index');
-        Route::resource('stage', 'InternshipController', ['only' => ['index', 'show', 'create', 'edit']]);
-        Route::resource('bedrijf', 'CompanyController', ['only' => ['index', 'show', 'create', 'edit']]);
+
+        Route::resource('stage', 'InternshipController', ['only' => ['index', 'show'/*, 'create', 'edit'*/]]);
+        Route::resource('bedrijf', 'CompanyController', ['only' => ['index', 'show'/*, 'create', 'edit'*/]]);
+
+        Route::group(['middleware' => ['auth']], function() {
+            Route::resource('stage', 'InternshipController', ['only' => ['create', 'edit']]);
+            Route::resource('bedrijf', 'CompanyController', ['only' => ['create', 'edit']]);
+        });
+
     });
 
     /**
@@ -25,7 +32,6 @@ Route::group(['middleware' => ['web']], function() {
 
         Route::group(['middleware' => ['login'], 'as' => 'login.'], function() {
             Route::get('admin', 'AdminController@index')->name('admin.index');
-
         });
     });
 
