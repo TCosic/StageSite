@@ -13,8 +13,17 @@ class EducationsTableSeeder extends Seeder
     public function run()
     {
         Education::create([
+            'leerweg' => 'BBL',
             'location_id' => 1,
-            'cohort_id' => 1
+            'cohort_id' => 1,
+            'crebo_id' => 1
+        ]);
+
+        Education::create([
+            'leerweg' => 'BBL',
+            'location_id' => 1,
+            'cohort_id' => 1,
+            'crebo_id' => 2
         ]);
     }
 }

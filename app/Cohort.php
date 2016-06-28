@@ -16,9 +16,4 @@ class Cohort extends Model
     public function education(){
         return $this->hasMany('App\Education');
     }
-
-    public function crebo()
-    {
-        return $this->belongsTo('App\Crebo');
-    }
 }

@@ -1,37 +1,34 @@
 body{
   font-family: arial, helvetica, sans-serif;
-  background: #F0F0F0;
+  background: $grey;
   margin: 0;
 }
 
-a{
-  &.test{
-    color: $blue;
-    background: $white;
-    padding: 3px;
-    border: 1px solid $blue2;
-  }
-}
-
-header{
-  background: #0063A6;
+header.top{
+  background: $blue;
   width: 100%;
   color: white;
 
-  h1{
+  h1 {
     margin: 0;
-    height: 155px;
+    line-height: 155px;
     @include center();
+
+    a {
+      text-decoration: none;
+      color: #FFF;
+    }
   }
 
   nav{
-    background: #0090D2;
+    background: $light-blue;
     height: 45px;
     @include center();
     position: relative;
 
     ul{
       margin: 0;
+      padding: 0 0 0 10px;
       list-style-type: none;
 
       li{
@@ -40,9 +37,10 @@ header{
         a{
           color: white;
           font-weight: bold;
-          padding: 5px;
+          padding: 0 10px;
           text-decoration: none;
           display: block;
+          line-height: 45px;
         }
       }
     }
@@ -56,9 +54,108 @@ main{
   overflow: auto;
   padding-top: 45px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+
+  div.search{
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+    //form {
+    //  div{
+    //    margin-bottom: 4px;
+    //  }
+    //
+    //  label {
+    //    width: 20%;
+    //    display: inline-block;
+    //  }
+    //
+    //  input[type="text"], select{
+    //    border-radius: 5px;
+    //    border: 1px solid #ccc;
+    //    padding: 5px;
+    //    width: calc(80% - 17px);
+    //  }
+    //
+    //  select{
+    //    width: calc(80% - 5px);
+    //  }
+    //}
+  }
+
+  section{
+    margin: 20px;
+    &.internship-overview,
+    &.company-overview{
+
+      h2{
+
+      }
+
+      article{
+        //width: 50%;
+        //display: inline-block;
+
+        .hoverShow{
+          visibility: hidden;
+        }
+      }
+
+
+      article:hover .hoverShow{
+        visibility: visible;
+      }
+    }
+
+    &.home{
+      article{
+        margin: 0 0 20px 0;
+        div{
+          max-width: 600px;
+          padding: 20px;
+          box-sizing: border-box;
+        }
+
+        .image-container{
+          padding: 0;
+          img{
+            width: 100%
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+.flex{
+  display: flex;
+}
+.flex-reverse{
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+@media (max-width: 700px) {
+  .flex{
+    display: flex;
+    flex-direction: column;
+  }
+  .flex-reverse{
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 footer{
   @include center();
+  margin-top: 20px;
   color: #444;
+  .flex{
+    h2{
+      margin: 10px 0;
+    }
+    h2, p{
+      min-width: 200px;
+    }
+  }
 }

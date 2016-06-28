@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCohortsTable extends Migration
+class CreateEducationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,15 @@ class CreateCohortsTable extends Migration
      */
     public function up()
     {
-        Schema::create('cohorts', function (Blueprint $table) {
+        Schema::create('educations', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->smallInteger('begin_year');
-            $table->smallInteger('end_year');
+            $table->enum('leerweg', array('BBL', 'BOL'));
+
+            $table->unsignedInteger('location_id')->default(2);
+            $table->foreign('location_id')->references('id')->on('locations');
+
+            $table->unsignedInteger('cohort_id')->default(2);
+            $table->foreign('cohort_id')->references('id')->on('cohorts');
 
             $table->unsignedInteger('crebo_id')->default(2);
             $table->foreign('crebo_id')->references('id')->on('crebos');
@@ -32,6 +36,6 @@ class CreateCohortsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('cohorts');
+        Schema::drop('educations');
     }
 }

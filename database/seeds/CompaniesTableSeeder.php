@@ -18,7 +18,17 @@ class CompaniesTableSeeder extends Seeder
             'housenumber' => '123',
             'postal_code' => '1234AB',
             'city' => 'Rotterdam',
-            'tel' => '0101234567'
+            'tel' => '0101234567',
+            'website' => 'www.webgurus.nl'
+        ]);
+        Company::create([
+            'name' => 'One Stop Webshop',
+            'streetname' => 'Handelsplein',
+            'housenumber' => '122',
+            'postal_code' => '3071PR',
+            'city' => 'Rotterdam',
+            'tel' => '0101234567',
+            'website' => 'www.one-stop-webshop.nl'
         ]);
     }
 }

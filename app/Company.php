@@ -12,7 +12,8 @@ class Company extends Model
         'housenumber',
         'postal_code',
         'city',
-        'tel'
+        'tel',
+        'website'
     ];
 
     public function contact(){
@@ -25,6 +26,10 @@ class Company extends Model
 
     public function internship_user() {
         return $this->belongsToMany('App\Internship_user', 'internshiptools', 'company_id', 'internship_user_id');
+    }
+
+    public function fullAddress(){
+        return $this->streetname.' '.$this->housenumber.' '.$this->postal_code.' '.$this->city;
     }
 
 }
