@@ -26,8 +26,10 @@
         </div>
         {!! Form::close() !!}
     </div>
-    <section>
-        <h2>Stageplekken overzicht</h2><a href="{{route('stage.create')}}" class="button green">Create</a>
+    <section class="internship-overview">
+        <h2>Stageplekken overzicht</h2>
+        <a href="{{route('stage.create')}}" class="button green">Create</a>
+
         @foreach($internships as $internship)
         <article class="internship-item" >
             <header>

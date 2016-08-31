@@ -83,24 +83,25 @@ main{
 
   section{
     margin: 20px;
-    &.internship-overview{
+    &.internship-overview,
+    &.company-overview{
 
       h2{
 
       }
 
       article{
-        width: 50%;
-        display: inline-block;
+        //width: 50%;
+        //display: inline-block;
 
         .hoverShow{
-          visibility: 0;
+          visibility: hidden;
         }
       }
 
 
-      article::hover .hoverShow{
-        visibility: 1;
+      article:hover .hoverShow{
+        visibility: visible;
       }
     }
 
