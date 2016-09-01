@@ -18,6 +18,7 @@ Route::group(['middleware' => ['web']], function() {
         Route::group(['middleware' => ['auth']], function() {
             Route::resource('stage', 'InternshipController', ['only' => ['create', 'edit']]);
             Route::resource('bedrijf', 'CompanyController', ['only' => ['create', 'edit']]);
+
         });
 
     });
