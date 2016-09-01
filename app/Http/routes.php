@@ -32,6 +32,7 @@ Route::group(['middleware' => ['web']], function() {
      */
     Route::group(['middleware' => ['auth'], 'namespace' => 'Web', 'as' => 'login.'], function () {
         Route::get('accounts', 'AccountController@index')->name('accounts.index');
+//        Route::post('stage', 'InternshipController@search')->name('stage.rating');
 
         Route::group(['middleware' => ['login'], 'as' => 'login.'], function() {
             Route::get('admin', 'AdminController@index')->name('admin.index');
@@ -44,6 +45,7 @@ Route::group(['middleware' => ['web']], function() {
      */
     Route::group(['middleware' => ['api'], 'namespace' => 'Api'], function() {
         Route::post('stage/search', 'InternshipController@search')->name('stage.search');
+        Route::post('stage/review', 'InternshipController@review')->name('stage.review');
         Route::resource('stage', 'InternshipController', ['only' => ['store', 'update', 'destroy']]);
         Route::resource('bedrijf', 'CompanyController', ['only' => ['store', 'update', 'destroy']]);
     });
