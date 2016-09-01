@@ -24,8 +24,11 @@ class InternshipController extends Controller
 
     public function search(Request $request)
     {
+
         $requestData = $request->all();
         $companyName = $requestData['company_name'];
+
+        //print_r($requestData);
 
         $internships = Internship::whereHas('contact', function ($q) use ($companyName) {
             $q->whereHas('company', function ($q2) use ($companyName) {
@@ -34,6 +37,8 @@ class InternshipController extends Controller
         })
             ->where('education_id', '=', $requestData['education'])
             ->get();
+
+        //return response(true, 200);
 
         return response($internships, 200);
     }

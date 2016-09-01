@@ -66,4 +66,39 @@ $(window).load(function(){
         });
     });
 
+    var form = $('#search-form');
+    form.submit(function(e) {
+        e.preventDefault();
+        var token = $(this).data('token');
+        var url = $(this).data('url');
+        var data = $(this).serializeArray();
+
+        console.log(token);
+
+        $.post({
+            url: url,
+            //type: "POST",
+            data: { _token: token, input: data }
+
+        }).success(function(response) {
+            var wrapper = $('div.contact-wrapper');
+            wrapper.empty();
+            if(response.length <= 0) {
+                wrapper.append(
+                    "<p>There are no results.</p>"
+                );
+            } else {
+                $.each(response, function(key, value) {
+
+                    wrapper.append(
+                        "<div class='well'>" +
+                        "<a href=''>" + value.voornaam + " " + value.achternaam + "</a>" +
+                        "</div>"
+                    );
+                });
+            }
+        });
+
+    });
+
 });
