@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="search">
-        {!! Form::open(['route' => 'stage.search', 'class' => 'horizontal']) !!}
+        {!! Form::open(['route' => 'stage.search', 'class' => 'horizontal', 'id' => 'search-form', 'data-token' => csrf_token(), 'data-url' => route('stage.search')]) !!}
         <div>
             {!! Form::label('company_name', 'Bedrijfsnaam:') !!}
             {!! Form::text('company_name', null, ['class' => 'form-control']) !!}
@@ -22,7 +22,7 @@
             {!! Form::text('city', null, ['class' => 'form-control']) !!}
         </div>
         <div>
-            {!! Form::submit('Zoeken', ['class' => 'button green']) !!}
+            {!! Form::submit('Zoeken', ['class' => 'button green', 'id' => 'search']) !!}
         </div>
         {!! Form::close() !!}
     </div>
