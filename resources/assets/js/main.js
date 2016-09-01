@@ -1,4 +1,10 @@
 $(window).load(function(){
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
     var background = $('#login-background')
     var loginBox = $('#login-box');
     var closeButton = $('#close-button');
@@ -71,16 +77,18 @@ $(window).load(function(){
         e.preventDefault();
         var token = $(this).data('token');
         var url = $(this).data('url');
-        var data = $(this).serializeArray();
+        var data = $(this).serialize();
 
         console.log(token);
 
         $.post({
             url: url,
-            //type: "POST",
-            data: { _token: token, input: data }
+            method: "POST",
+            data: { _token: token, input: data },
+            dataType: "json"
 
         }).success(function(response) {
+
             var wrapper = $('div.contact-wrapper');
             wrapper.empty();
             if(response.length <= 0) {
@@ -88,6 +96,7 @@ $(window).load(function(){
                     "<p>There are no results.</p>"
                 );
             } else {
+                console.log(response);
                 $.each(response, function(key, value) {
 
                     wrapper.append(
