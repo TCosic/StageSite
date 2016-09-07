@@ -5,7 +5,7 @@
  */
 Route::auth();
 
-<<<<<<< HEAD
+
         Route::resource('stage', 'InternshipController', ['only' => ['index', 'show'/*, 'create', 'edit'*/]]);
         Route::resource('bedrijf', 'CompanyController', ['only' => ['index', 'show'/*, 'create', 'edit'*/]]);
 
@@ -14,10 +14,10 @@ Route::auth();
             Route::resource('bedrijf', 'CompanyController', ['only' => ['create', 'edit']]);
 
         });
-=======
+
 Route::group(['namespace' => 'Web'], function(){
     Route::get('/', 'IndexController@index')->name('index');
->>>>>>> refs/remotes/origin/development
+
 
     Route::group(['middleware' => ['auth']], function() {
         Route::resource('stage', 'InternshipController', ['only' => ['create', 'edit']]);
