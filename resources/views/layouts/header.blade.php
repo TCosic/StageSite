@@ -9,6 +9,7 @@
             @if(Auth::check())
                 @if(Auth::user()->role_id == 1)
                     <li><a href="{{ url('/logout') }}">Logout</a></li>
+                    {{--<li style="float: right"><a href="{{ route('admin.index') }}">Admin</a></li>--}}
                 @else
                     <li><a id="menu-login-button" href="{{ url('/login') }}">Login</a></li>
                 @endif

@@ -24,8 +24,11 @@ Route::group(['namespace' => 'Web'], function(){
 Route::group(['middleware' => ['auth'], 'namespace' => 'Web', 'as' => 'login.'], function () {
     Route::get('account', 'AccountController@index')->name('account.index');
 
-    Route::group(['middleware' => ['login'], 'as' => 'login.'], function() {
+    Route::group(['middleware' => ['login']], function() {
         Route::get('admin', 'AdminController@index')->name('admin.index');
+        Route::get('admin/tool', 'AdminController@tool')->name('admin.tool');
+        Route::get('admin/user', 'AdminController@user')->name('admin.user');
+        Route::get('admin/company', 'AdminController@company')->name('admin.company');
     });
 });
 

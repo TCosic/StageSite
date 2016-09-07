@@ -26,4 +26,38 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function getIndex()
+    {
+        return View::make('auth.index');
+    }
+
+    public function postIndex()
+    {
+        $username = Input::get('username');
+        $password = Input::get('password');
+
+        if (Auth::attempt(['username' => $username, 'password' => $password]))
+        {
+            return Redirect::intended('/user');
+        }
+
+        return Redirect::back()
+            ->withInput()
+            ->withErrors('That username/password combo does not exist.');
+    }
+
+    public function getLogin()
+    {
+        return Redirect::to('/');
+    }
+
+    public function getLogout()
+    {
+        Auth::logout();
+
+        return Redirect::to('/');
+    }
+
 }
+

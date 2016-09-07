@@ -1,10 +1,11 @@
 @extends('master')
 
-@section('title', 'Admin Overview')
+@section('title', 'User Admin')
 
 @section('content')
-    <section class="home">
-        This is the admin overview page
+    <section>
+        <a href="{{route("login.admin.user")}}">User admin</a>
+        <a href="{{route("login.admin.company")}}">Company admin</a>
+        <a href="{{route("login.admin.tool")}}">Tool admin</a>
     </section>
-
 @stop
