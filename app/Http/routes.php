@@ -5,8 +5,19 @@
  */
 Route::auth();
 
+
+        Route::resource('stage', 'InternshipController', ['only' => ['index', 'show'/*, 'create', 'edit'*/]]);
+        Route::resource('bedrijf', 'CompanyController', ['only' => ['index', 'show'/*, 'create', 'edit'*/]]);
+
+        Route::group(['middleware' => ['auth']], function() {
+            Route::resource('stage', 'InternshipController', ['only' => ['create', 'edit']]);
+            Route::resource('bedrijf', 'CompanyController', ['only' => ['create', 'edit']]);
+
+        });
+
 Route::group(['namespace' => 'Web'], function(){
     Route::get('/', 'IndexController@index')->name('index');
+
 
     Route::group(['middleware' => ['auth']], function() {
         Route::resource('stage', 'InternshipController', ['only' => ['create', 'edit']]);

@@ -7,11 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class AdminController extends Controller
+class UAdminController extends Controller
 {
     public function index(){
-
-        return view('pages.admin.index');
-
+        return view('admin/user_admin/uadmin');
     }
 }

@@ -91,6 +91,10 @@ main{
       }
 
       article{
+<<<<<<< HEAD
+        width: 50%;
+        display: inline-block;
+=======
         //width: 50%;
         //display: inline-block;
 
@@ -102,6 +106,7 @@ main{
 
       article:hover .hoverShow{
         visibility: visible;
+>>>>>>> refs/remotes/origin/development
       }
     }
 
@@ -125,7 +130,15 @@ main{
   }
 }
 
+a {
+  color: #428bca;
+  text-decoration: none;
+}
 
+a:hover, a:focus {
+  color: #2a6496;
+  text-decoration: underline;
+}
 
 .flex{
   display: flex;
