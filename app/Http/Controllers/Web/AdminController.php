@@ -25,7 +25,6 @@ class AdminController extends Controller
 
     public function company(){
         $companies = Company::all();
-        //dd($companies);
         return view('pages.admin.cadmin', compact('companies'));
     }
 }
