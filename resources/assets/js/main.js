@@ -72,24 +72,39 @@ $(window).load(function(){
         });
     });
 
+    $.fn.serializeObject = function()
+    {
+        var o = {};
+        var a = this.serializeArray();
+        $.each(a, function() {
+            if (o[this.name] !== undefined) {
+                if (!o[this.name].push) {
+                    o[this.name] = [o[this.name]];
+                }
+                o[this.name].push(this.value || '');
+            } else {
+                o[this.name] = this.value || '';
+            }
+        });
+        return o;
+    };
+
     var form = $('#search-form');
     form.submit(function(e) {
         e.preventDefault();
         var token = $(this).data('token');
         var url = $(this).data('url');
-        var data = $(this).serialize();
-
-        console.log(token);
+        //var data = $(this).serialize();
+        var data = $(this).serializeObject();
 
         $.post({
             url: url,
             method: "POST",
-            data: { _token: token, input: data },
-            dataType: "json"
+            data: { _token: token, input: data }
 
         }).success(function(response) {
 
-            var wrapper = $('div.contact-wrapper');
+            var wrapper = $('section#internship-items');
             wrapper.empty();
             if(response.length <= 0) {
                 wrapper.append(
@@ -98,11 +113,10 @@ $(window).load(function(){
             } else {
                 console.log(response);
                 $.each(response, function(key, value) {
-
                     wrapper.append(
-                        "<div class='well'>" +
-                        "<a href=''>" + value.voornaam + " " + value.achternaam + "</a>" +
-                        "</div>"
+                        "<article class='internship-item' >" +
+                        "<a href=''>" + value.contact_id + " " + value.description + "</a>" +
+                        "</article>"
                     );
                 });
             }

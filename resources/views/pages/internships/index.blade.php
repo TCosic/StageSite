@@ -29,24 +29,25 @@
     <section class="internship-overview">
         <h2>Stageplekken overzicht</h2>
         <a href="{{route('stage.create')}}" class="button green">Create</a>
-
-        @foreach($internships as $internship)
-        <article class="internship-item" >
-            <header>
-                <h3><a href="{{ route('stage.show', $internship->id) }}">{{$internship->contact->company->name}}</a></h3>
-                <ul>
-                    <li><span>Locatie: </span> {{$internship->contact->company->fullAddress() }}</li>
-                    <li><span>Telefoon: </span> <a href="tel:{{$internship->contact->company->tel}}">{{$internship->contact->company->tel}}</a></li>
-                    <li><span>Website: </span> <a href="http://{{$internship->contact->company->website}}" rel="nofollow">{{$internship->contact->company->website}}</a></li>
-                    <li><span>Richting: </span> {{$internship->education->crebo->name}}</li>
-                    <li><span>Leerweg: </span> {{$internship->education->leerweg}}</li>
-                </ul>
-                <div class="hoverShow">
-                    <a href="{{ route('stage.destroy', $internship->id) }}" data-token="{{ csrf_token() }}" class="delete">Verwijderen</a>
-                    <a href="{{ route('stage.edit', $internship->id) }}">Wijzig</a>
-                </div>
-            </header>
-        </article>
-        @endforeach
+        <section id="internship-items">
+            @foreach($internships as $internship)
+            <article class="internship-item" >
+                <header>
+                    <h3><a href="{{ route('stage.show', $internship->id) }}">{{$internship->contact->company->name}}</a></h3>
+                    <ul>
+                        <li><span>Locatie: </span> {{$internship->contact->company->fullAddress() }}</li>
+                        <li><span>Telefoon: </span> <a href="tel:{{$internship->contact->company->tel}}">{{$internship->contact->company->tel}}</a></li>
+                        <li><span>Website: </span> <a href="http://{{$internship->contact->company->website}}" rel="nofollow">{{$internship->contact->company->website}}</a></li>
+                        <li><span>Richting: </span> {{$internship->education->crebo->name}}</li>
+                        <li><span>Leerweg: </span> {{$internship->education->leerweg}}</li>
+                    </ul>
+                    <div class="hoverShow">
+                        <a href="{{ route('stage.destroy', $internship->id) }}" data-token="{{ csrf_token() }}" class="delete">Verwijderen</a>
+                        <a href="{{ route('stage.edit', $internship->id) }}">Wijzig</a>
+                    </div>
+                </header>
+            </article>
+            @endforeach
+        </section>
     </section>
 @stop

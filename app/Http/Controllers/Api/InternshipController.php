@@ -27,27 +27,18 @@ class InternshipController extends Controller
 
     public function search(Request $request)
     {
-        /**
-         * ToDo: handle serialized data from ajax post.
-         */
         $requestData = $request->all();
-        //$requestData = json_decode($requestData);
-        //$companyName = $requestData['company_name'];
+        $companyName = $requestData['input']['company_name'];
 
+        $internships = Internship::whereHas('contact', function ($q) use ($companyName) {
+            $q->whereHas('company', function ($q2) use ($companyName) {
+                $q2->where('name', 'like', "%$companyName%");
+            });
+        })
+            ->where('education_id', '=', $requestData['input']['education'])
+            ->get();
 
-        return response($requestData['input'], 200);
-
-//        $internships = Internship::whereHas('contact', function ($q) use ($companyName) {
-//            $q->whereHas('company', function ($q2) use ($companyName) {
-//                $q2->where('name', 'like', "%$companyName%");
-//            });
-//        })
-//            ->where('education_id', '=', $requestData['education'])
-//            ->get();
-//
-//        //return response(['data': true], 200);
-//
-//        return response($internships, 200);
+        return response($internships, 200);
     }
 
     public function store(Request $request)
