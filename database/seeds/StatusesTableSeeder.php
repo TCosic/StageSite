@@ -25,6 +25,9 @@ class StatusesTableSeeder extends Seeder
             'name' => 'Active',
         ]);
         Status::create([
+            'name' => 'Disabled',
+        ]);
+        Status::create([
             'name' => 'Public',
         ]);
         Status::create([

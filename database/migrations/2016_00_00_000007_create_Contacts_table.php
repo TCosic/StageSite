@@ -21,7 +21,7 @@ class CreateContactsTable extends Migration
             $table->string('tel');
             $table->string('mobile');
 
-            $table->unsignedInteger('company_id')->default(2);
+            $table->unsignedInteger('company_id');
             $table->foreign('company_id')->references('id')->on('companies');
             $table->timestamps();
         });

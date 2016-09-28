@@ -44,7 +44,8 @@ class InternshipController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
-        $input['contact_id'] = 1;
+        $user = Auth::user();
+        $input['contact_id'] = $user->contact->company->id;
 
         $validate = $this->validator($input);
         if ($validate->fails()) {
@@ -59,7 +60,8 @@ class InternshipController extends Controller
     {
 
         $input = $request->all();
-        $input['contact_id'] = 1;
+        $user = Auth::user();
+        $input['contact_id'] = $user->contact->company->id;
 
         $validate = $this->validator($input);
         if ($validate->fails()) {

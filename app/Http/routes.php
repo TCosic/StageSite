@@ -11,6 +11,8 @@ Route::group(['namespace' => 'Web'], function(){
     Route::group(['middleware' => ['auth']], function() {
         Route::resource('stage', 'InternshipController', ['only' => ['create', 'edit']]);
         Route::resource('bedrijf', 'CompanyController', ['only' => ['create', 'edit']]);
+        Route::resource('tool', 'ToolController', ['only' => ['create', 'edit']]);
+        Route::resource('user', 'UserController', ['only' => ['create', 'edit']]);
     });
 
     Route::resource('stage', 'InternshipController', ['only' => ['index', 'show']]);
@@ -41,5 +43,7 @@ Route::group(['middleware' => ['api'], 'namespace' => 'Api'], function() {
     Route::post('stage/review', 'InternshipController@review')->name('stage.review');
     Route::resource('stage', 'InternshipController', ['only' => ['store', 'update', 'destroy']]);
     Route::resource('bedrijf', 'CompanyController', ['only' => ['store', 'update', 'destroy']]);
+    Route::resource('tool', 'ToolController', ['only' => ['store', 'update', 'destroy']]);
+    Route::resource('user', 'UserController', ['only' => ['store', 'update', 'destroy']]);
 });
 

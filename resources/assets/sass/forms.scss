@@ -5,7 +5,11 @@ form {
       display: inline-block;
     }
 
-    input[type="text"], select{
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    input[type="number"],
+    select{
       border-radius: 5px;
       border: 1px solid #ccc;
       padding: 5px;
