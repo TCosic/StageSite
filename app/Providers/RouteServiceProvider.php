@@ -29,6 +29,8 @@ class RouteServiceProvider extends ServiceProvider
         $router->model('stage', 'App\Internship');
         $router->model('review', 'App\Review');
         $router->model('bedrijf', 'App\Company');
+        $router->model('tool', 'App\Tool');
+        $router->model('user', 'App\User');
     }
 
     /**

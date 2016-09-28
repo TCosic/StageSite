@@ -1,4 +1,10 @@
 $(window).load(function(){
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
     var background = $('#login-background')
     var loginBox = $('#login-box');
     var closeButton = $('#close-button');
@@ -66,34 +72,51 @@ $(window).load(function(){
         });
     });
 
+    $.fn.serializeObject = function()
+    {
+        var o = {};
+        var a = this.serializeArray();
+        $.each(a, function() {
+            if (o[this.name] !== undefined) {
+                if (!o[this.name].push) {
+                    o[this.name] = [o[this.name]];
+                }
+                o[this.name].push(this.value || '');
+            } else {
+                o[this.name] = this.value || '';
+            }
+        });
+        return o;
+    };
+
     var form = $('#search-form');
     form.submit(function(e) {
         e.preventDefault();
         var token = $(this).data('token');
         var url = $(this).data('url');
-        var data = $(this).serializeArray();
-
-        console.log(token);
+        //var data = $(this).serialize();
+        var data = $(this).serializeObject();
 
         $.post({
             url: url,
-            //type: "POST",
+            method: "POST",
             data: { _token: token, input: data }
 
         }).success(function(response) {
-            var wrapper = $('div.contact-wrapper');
+
+            var wrapper = $('section#internship-items');
             wrapper.empty();
             if(response.length <= 0) {
                 wrapper.append(
                     "<p>There are no results.</p>"
                 );
             } else {
+                console.log(response);
                 $.each(response, function(key, value) {
-
                     wrapper.append(
-                        "<div class='well'>" +
-                        "<a href=''>" + value.voornaam + " " + value.achternaam + "</a>" +
-                        "</div>"
+                        "<article class='internship-item' >" +
+                        "<a href=''>" + value.contact_id + " " + value.description + "</a>" +
+                        "</article>"
                     );
                 });
             }
