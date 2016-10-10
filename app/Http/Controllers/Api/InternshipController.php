@@ -5,8 +5,11 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Internship;
 use App\Company;
+use App\Review;
+use App\Internship_user;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Validator;
 
 class InternshipController extends Controller
@@ -24,21 +27,16 @@ class InternshipController extends Controller
 
     public function search(Request $request)
     {
-
         $requestData = $request->all();
-        $companyName = $requestData['company_name'];
-
-        //print_r($requestData);
+        $companyName = $requestData['input']['company_name'];
 
         $internships = Internship::whereHas('contact', function ($q) use ($companyName) {
             $q->whereHas('company', function ($q2) use ($companyName) {
                 $q2->where('name', 'like', "%$companyName%");
             });
         })
-            ->where('education_id', '=', $requestData['education'])
+            ->where('education_id', '=', $requestData['input']['education'])
             ->get();
-
-        //return response(true, 200);
 
         return response($internships, 200);
     }
@@ -46,7 +44,8 @@ class InternshipController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
-        $input['contact_id'] = 1;
+        $user = Auth::user();
+        $input['contact_id'] = $user->contact->company->id;
 
         $validate = $this->validator($input);
         if ($validate->fails()) {
@@ -61,7 +60,8 @@ class InternshipController extends Controller
     {
 
         $input = $request->all();
-        $input['contact_id'] = 1;
+        $user = Auth::user();
+        $input['contact_id'] = $user->contact->company->id;
 
         $validate = $this->validator($input);
         if ($validate->fails()) {
@@ -77,5 +77,26 @@ class InternshipController extends Controller
             return response(1, 200);
         }
         return response(0, 200);
+    }
+
+    public function review(Request $request)
+    {
+        $input = $request->all();
+
+
+
+//        return redirect(route('stage.show', $input->internship_id));
+        $uid = Auth::user()->id;
+
+
+        $input['internship_user_id'] = Internship_user::where(['internship_id' => $input["internship_id"], 'user_id' => $uid])->first()->id;
+
+        //dd($input);
+
+        Review::create($input);
+        //return response($request->all(), 200);
+        return redirect(route('stage.show', $input['internship_user_id']));
+//        return response($input, 200);
+        //return response($uid, 200);
     }
 }

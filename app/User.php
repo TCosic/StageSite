@@ -31,9 +31,4 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Internship', 'internship_users', 'user_id', 'internship_id');
     }
-
-    public function getFullName()
-    {
-        return $this->first_name . ' ' . $this->last_name;
-    }
 }

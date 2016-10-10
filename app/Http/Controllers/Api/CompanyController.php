@@ -53,7 +53,7 @@ class CompanyController extends Controller
         } else {
             Company::create($input);
         }
-        return redirect(route('bedrijf.index'));
+        return redirect(route('login.admin.company'));
     }
 
     public function update(Request $request, $company)
@@ -66,7 +66,7 @@ class CompanyController extends Controller
         } else {
             $company->update($input);
         }
-        return redirect(route('bedrijf.index'));
+        return redirect(route('login.admin.company'));
     }
 
     public function destroy($company){
